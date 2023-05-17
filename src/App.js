@@ -1,19 +1,22 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar";
-import Products from "./components/products";
+import Main from "./pages/main";
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Navbar />
-        <Products />
+      <BrowserRouter>
         <Routes>
-          <Route path="/" />
-          <Route path="/productList" />
+          <Navbar />
+          <Main />
+          <Routes>
+            <Route path="/" />
+            <Route path="/productList" />
+            <Route path="/bookmark" />
+          </Routes>
         </Routes>
-      </Router>
+      </BrowserRouter>
     </div>
   );
 }

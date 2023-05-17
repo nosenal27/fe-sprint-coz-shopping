@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 
-const Products = () => {
-  const [data, setData] = useState([]);
-  const [filter, setFilter] = useState(data);
-  const [loading, setLoading] = useState(false);
-  let componentMounted = true;
+const Main = () => {
+  const [index, setIndex] = useState();
+  const [items, setItems] = useState(index);
 
+  const getProducts = () => {};
   useEffect(() => {
-    const getProducts = () => {
+    const getProducts = async () => {
       setLoading(true);
       const response = await fetch(
-        "http://cozshopping.codestates-seb.link/api-docs/#/Products/get_api_v1_products?count=4"
+        "http://cozshopping.codestates-seb.link/api-docs/#/Products/get_api_v1_products"
       );
       if (componentMounted) {
         setData(await response.clone().json());
@@ -29,7 +28,7 @@ const Products = () => {
       <div className="container my-4 py-5">
         <div className="row">
           <div className="col-12 my4">
-            <h1 className="display-6 fw-bolder">상품 리스트</h1>
+            <h1 className="display-6 fw-bolderr">상품 리스트</h1>
           </div>
         </div>
       </div>
