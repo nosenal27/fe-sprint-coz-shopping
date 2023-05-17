@@ -1,17 +1,22 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar";
+import Main from "./pages/main";
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Navbar />
+      <BrowserRouter>
         <Routes>
-          <Route path="/" />
-          <Route path="/cart" />
+          <Navbar />
+          <Main />
+          <Routes>
+            <Route path="/" />
+            <Route path="/productList" />
+            <Route path="/bookmark" />
+          </Routes>
         </Routes>
-      </Router>
+      </BrowserRouter>
     </div>
   );
 }
